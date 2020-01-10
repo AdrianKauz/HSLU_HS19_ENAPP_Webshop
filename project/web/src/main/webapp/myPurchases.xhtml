@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/resources/templates/template.xhtml">
+    <ui:define name="content">
+        <div class="XStyleDefault XRoundedBorderBottom XShadow">
+            <div class="XPaneTitle">My Purchases...</div>
+            <div class="XPaneBody XAddSpace10">
+                <div class="XRow XPadding5 XAddSpaceTopAndBottom5">
+                    <h:outputText class="XRowLabel XWidth150 XTextColorYellow" value="Date"/>
+                    <h:outputText class="XRowLabel XWidth100 XTextColorYellow XCenterContentH" value="Items"/>
+                    <h:outputText class="XRowLabel XWidth150 XTextColorYellow" value="Total Price (CHF)"/>
+                    <h:outputText class="XRowLabel XWidth100 XTextColorYellow XCenterContentH" value="State"/>
+                </div>
+                <ui:repeat value="#{purchaseJSF.allPurchasesFromUser}" var="singlePurchaseItem" varStatus="status">
+                    <div class="XRow XPadding5 #{status.index%2 eq 0 ? 'XRowEven' : 'XRowOdd'}">
+                        <h:outputText class="XRowLabel XWidth150" value="#{singlePurchaseItem.date}">
+                            <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText class="XRowLabel XWidth100 XCenterContentH" value="#{singlePurchaseItem.itemCount}"/>
+                        <h:outputText class="XRowLabel XWidth150" value="#{singlePurchaseItem.totalPrice}">
+                            <f:convertNumber pattern="###.00" />
+                        </h:outputText>
+                        <h:outputText class="XRowLabel XWidth100 XCenterContentH" value="#{singlePurchaseItem.state}"/>
+                    </div>
+                </ui:repeat>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

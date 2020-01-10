@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+    <!-- activate next line to be able to deploy applications in apps -->
+    <Deployments dir="apps" />
+    <Resource id="eatme" type="javax.sql.DataSource">
+        JtaManaged true
+        JdbcDriver com.mysql.jdbc.Driver
+        JdbcUrl jdbc:mysql://172.18.0.3:3306/eatme?useSSL=false
+        UserName root
+        Password enapp
+        TestOnBorrow true
+        DefaultTransactionIsolation 8
+        ValidationQuery SELECT 1
+    </Resource>
+
+    <Resource id="webshop" type="javax.sql.DataSource">
+        JtaManaged true
+        JdbcDriver com.mysql.jdbc.Driver
+        JdbcUrl jdbc:mysql://172.18.0.3:3306/webshop?useSSL=false
+        UserName root
+        Password enapp
+        TestOnBorrow true
+        DefaultTransactionIsolation 8
+        ValidationQuery SELECT 1
+    </Resource>
+
+    <Resource id="MyRemoteJmsResourceAdapter" type="ActiveMQResourceAdapter">
+        BrokerXmlConfig = broker:(tcp://enapp-daemons.el.eee.intern:61616)
+        ServerUrl = tcp://enapp-daemons.el.eee.intern:61616
+    </Resource>
+
+    <Resource id="MyRemoteJmsQueueConnectionFactory" type="javax.jms.ConnectionFactory">
+        ResourceAdapter = MyRemoteJmsResourceAdapter
+    </Resource>
+
+    <Resource id="jms/enappQueueAMQ" type="javax.jms.Queue" />
+</tomee>

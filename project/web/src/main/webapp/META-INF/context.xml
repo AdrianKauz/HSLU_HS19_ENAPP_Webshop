@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context path="/enapp">
+    <Realm className="org.apache.catalina.realm.DataSourceRealm"
+           dataSourceName="webshop"
+           debug="9"
+           userTable="user"
+           userNameCol="name"
+           userCredCol="password"
+           userRoleTable="usertorole"
+           roleNameCol="role">
+        <CredentialHandler
+                className="org.apache.catalina.realm.MessageDigestCredentialHandler"
+                algorithm="SHA-256"/>
+    </Realm>
+</Context>

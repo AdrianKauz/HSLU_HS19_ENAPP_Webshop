@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <body>
+        <ui:composition>
+            <div class="navigationBar">
+                <h:form>
+                    <!-- All users -->
+                    <span class="navigationItem"><h:link outcome="/index" value="Browse Shop"/></span>
+
+                    <!-- Known users -->
+                    <ui:fragment rendered="#{userSessionJSF.username != null and userSessionJSF.username != ''}">
+                        <span class="navigationItem"><h:link outcome="/myAccount" value="My Account"/></span>
+                        <span class="navigationItem"><h:link outcome="/myPurchases" value="My Purchases"/></span>
+                        <span class="navigationItem"><h:commandLink action="#{userSessionJSF.logout}" value="Logout"/></span>
+                    </ui:fragment>
+
+                    <!-- Unknown users -->
+                    <ui:fragment rendered="#{userSessionJSF.username == null or userSessionJSF.username == ''}">
+                        <span class="navigationItem"><h:commandLink action="/secure/secured_index?faces-redirect=true" value="Sign In"/></span>
+                        <span class="navigationItem"><h:link outcome="/register" value="Join"/></span>
+                    </ui:fragment>
+
+                    <!-- If user is administrator -->
+                    <ui:fragment rendered="#{userSessionJSF.username != null and userSessionJSF.administrator}">
+                        <span class="navigationItem"><h:link outcome="/secure/allUsers" value="Users"/></span>
+                    </ui:fragment>
+
+                    <!-- All users -->
+                    <span class="navigationItem"><h:link outcome="/cart" value="Cart"/></span>
+                </h:form>
+                <h:panelGroup id="cartCounterContainer">
+                    <h:outputText class="cartCounter" value="#{cartJSF.size}"/>
+                </h:panelGroup>
+            </div>
+        </ui:composition>
+    </body>
+</html>

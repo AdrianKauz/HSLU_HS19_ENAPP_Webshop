@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/resources/templates/template.xhtml">
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewAction action="#{myAccountJSF.loadUserAttributes}"/>
+        </f:metadata>
+        <div>
+            <h:form id="modifyUserForm" >
+                <div class="XStyleDefault XRoundedBorderBottom XShadow">
+                    <div class="XPaneTitle">My Account...</div>
+                    <div class="XPaneBody XAddSpace10">
+                        <div class="XRow XAddSpaceTopAndBottom5">
+                            <span class="XRowLabel XWidth100">Username:</span>
+                            <h:outputText class="XRowLabel XWidth200" value="#{myAccountJSF.username}"/>
+                        </div>
+                        <div class="XRow XAddSpaceBottom5">
+                            <span class="XRowLabel XWidth100">Firstname:</span>
+                            <h:inputText class="XRowTextInput XWidth200" id="firstnameInput" value="#{myAccountJSF.firstname}"/>
+                            <h:message class="XRowMessage XStretch XTextDirectionRight" id="firstnameInputMessage" for="firstnameInput"/>
+                        </div>
+                        <div class="XRow XAddSpaceBottom5">
+                            <span class="XRowLabel XWidth100">Lastname:</span>
+                            <h:inputText class="XRowTextInput XWidth200" id="lastnameInput" value="#{myAccountJSF.lastname}"/>
+                            <h:message class="XRowMessage XStretch XTextDirectionRight" id="lastnameInputMessage" for="lastnameInput"/>
+                        </div>
+                        <div class="XRow XAddSpaceBottom5">
+                            <span class="XRowLabel XWidth100">E-Mail:</span>
+                            <h:inputText class="XRowTextInput XWidth200" id="emailInput" value="#{myAccountJSF.email}"/>
+                            <h:message class="XRowMessage XStretch XTextDirectionRight" id="emailInputMessage" for="emailInput"/>
+                        </div>
+                        <div class="XRow XAddSpaceBottom15">
+                            <span class="XRowLabel XWidth100">Address:</span>
+                            <h:inputText class="XRowTextInput XWidth200" id="addressInput" value="#{myAccountJSF.address}"/>
+                            <h:message class="XRowMessage XStretch XTextDirectionRight" id="addressInputMessage" for="addressInput"/>
+                        </div>
+                        <div class="XRow XAddSpaceTopAndBottom5 XCenterContentH">
+                            <h:commandButton class="XStyleButton XWidthStretch" value="Update" actionListener="#{myAccountJSF.modifyUser}">
+                                <f:ajax render="@all" execute="modifyUserForm"/>
+                            </h:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

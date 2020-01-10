@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                template="/resources/templates/template.xhtml">
+    <ui:define name="content">
+        <h:form id="allUsersForm">
+            <div class="XStyleDefault XRoundedBorderBottom XShadow">
+                <div class="XPaneTitle">User Administration...</div>
+                <div class="XPaneBody XAddSpace10">
+                    <div class="XRow XPadding5 XAddSpaceTopAndBottom5">
+                        <h:outputText class="XRowLabel XWidth200 XTextColorYellow" value="Firstname"/>
+                        <h:outputText class="XRowLabel XWidth200 XTextColorYellow" value="Lastname"/>
+                        <h:outputText class="XRowLabel XWidth200 XTextColorYellow" value="E-Mail"/>
+                        <h:outputText class="XRowLabel XWidth200 XTextColorYellow" value="DynNavNo"/>
+                    </div>
+                    <ui:repeat value="#{administrationJSF.allUsers}" var="singleUser" varStatus="status">
+                        <div class="XRow XPadding5 #{status.index%2 eq 0 ? 'XRowEven' : 'XRowOdd'}">
+                            <h:outputText class="XRowLabel XWidth200" value="#{singleUser.firstname}"/>
+                            <h:outputText class="XRowLabel XWidth200" value="#{singleUser.lastname}"/>
+                            <h:outputText class="XRowLabel XWidth200" value="#{singleUser.email}"/>
+                            <h:inputText class="XRowTextInput XWidth100" value="#{singleUser.dynnavid}"/>
+                            <span class="XWidth50"/>
+                            <h:commandButton class="XStyleButton XWidth100 XAddSpaceLeft50" value="Update"
+                                             action="#{administrationJSF.updateUser(singleUser)}">
+                            </h:commandButton>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

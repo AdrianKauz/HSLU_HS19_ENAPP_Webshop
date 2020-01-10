@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/resources/templates/template.xhtml">
+    <ui:define name="content">
+        <form id="login_form" method="post" action="j_security_check">
+            <div class="XStyleDefault XRoundedBorderBottom XShadow">
+                <div class="XPaneTitle">Sign in...</div>
+                <div class="XPaneBody XAddSpace10">
+                    <div class="XRow XAddSpaceTopAndBottom5">
+                        <label class="XRowLabel XWidth100" for="j_username">Name:</label>
+                        <input class="XRowTextInput XWidth150" id="j_username" type="text" name="j_username" size="35"/>
+                    </div>
+                    <div class="XRow XAddSpaceBottom15">
+                        <label class="XRowLabel XWidth100" for="j_password">Password:</label>
+                        <input class="XRowTextInput XWidth150" id="j_password" type="password" name="j_password" value="" size="35"/>
+                    </div>
+                    <div class="XRow XAddSpaceTopAndBottom5 XCenterContentH">
+                        <input class="XStyleButton XWidthStretch" id="login" type="submit" name="login" value="Login"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ui:define>
+</ui:composition>

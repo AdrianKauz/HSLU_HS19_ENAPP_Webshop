@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/resources/templates/template.xhtml">
+    <ui:define name="content">
+        <div>
+            <h:form id="addProductForm">
+                <p>
+                    <h:outputText value="Name: "/>
+                    <h:inputText id="nameInput" value="#{productJSF.name}"/>
+                    <h:message id="nameInputMessage" for="nameInput" styleClass="errormsg"/>
+                </p>
+                <p>
+                    <h:outputText value="Description: "/>
+                    <h:inputText id="descriptionInput" value="#{productJSF.description}"/>
+                    <h:message id="descriptionInputMessage" for="descriptionInput" styleClass="errormsg"/>
+                </p>
+                <p>
+                    <h:outputText value="Unit Price: "/>
+                    <h:inputText id="unitPriceInput" value="#{productJSF.unitPrice}"/>
+                    <h:message id="unitPriceInputMessage" for="unitPriceInput" styleClass="errormsg"/>
+                </p>
+                <p>
+                    <h:outputText value="Media Path: "/>
+                    <h:inputText id="mediaPathInput" value="#{productJSF.mediapath}"/>
+                    <h:message id="mediaPathInputMessage" for="mediaPathInput" styleClass="errormsg"/>
+                </p>
+                <p>
+                    <h:commandButton value="Add Product" actionListener="#{productJSF.createProduct}">
+                        <f:ajax render="@all" execute="addProductForm"/>
+                    </h:commandButton>
+                </p>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

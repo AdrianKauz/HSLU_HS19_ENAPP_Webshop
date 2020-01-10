@@ -1,0 +1,50 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="purchaseMessage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="payId"/>
+                <xs:element type="xs:string" name="purchaseId"/>
+                <xs:element type="xs:string" name="student"/>
+                <xs:element type="positive-float" name="totalPrice"/>
+                <xs:element type="xs:dateTime" name="date"/>
+                <xs:element name="customer">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="dynNavCustNo"/>
+                            <xs:element type="xs:string" name="name"/>
+                            <xs:element type="xs:string" name="address"/>
+                            <xs:element type="xs:short" name="postCode"/>
+                            <xs:element type="xs:string" name="city"/>
+                            <xs:element type="xs:string" name="shopLoginname"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="lines">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="line" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="msDynNAVItemNo"/>
+                                        <xs:element type="xs:string" name="description"/>
+                                        <xs:element type="xs:positiveInteger" name="quantity"/>
+                                        <xs:element type="positive-float" name="totalLinePrice"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="positive-float">
+        <xs:annotation>
+            <xs:documentation>The positive-float type specifies a positive float value.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float">
+            <xs:minExclusive value="0.0"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

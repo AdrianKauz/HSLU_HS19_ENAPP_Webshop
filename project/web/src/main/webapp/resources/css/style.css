@@ -1,0 +1,442 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url("#{resource['font/Oswald-Regular.woff']}") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    color: rgb(200, 200, 200);
+    font-family: 'Oswald', 'Arial', sans-serif;
+}
+
+a {
+    transition: 0.5s;
+}
+
+a:hover {
+    color: rgb(100, 100, 100);
+}
+
+html, body {
+    background: url("#{resource['images/noise.png']}") repeat rgb(35, 35, 35);
+    height:100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+#container {
+    background: rgb(20, 20, 20);
+    margin: 50px auto 50px auto;
+    max-width: 1024px;
+    border: 1px solid black;
+    border-radius: 3px;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0px 2px 30px 2px rgb(10,10,10);
+}
+
+/**********
+ Header
+ **********/
+#header {
+    background: url("#{resource['images/webshop_logo.png']}") rgb(20, 20, 20);
+    width: 100%;
+    min-height: 75px;
+}
+
+/**********
+ Navigation Bar
+ **********/
+.navigationBar {
+    background: rgb(0, 0, 0);
+    width: 100%;
+    height: 50px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /*vertical-align: center;
+    align-items: center;*/
+}
+
+.navigationItem {
+    font-size: 25px;
+    line-height: 55px;
+    padding-top: 20px;
+    margin-left: 5px;
+    padding-left: 5px;
+    margin-right: 5px;
+    padding-right: 5px;
+    text-transform: uppercase;
+}
+
+#cartCounterContainer {
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    background: url("#{resource['images/lp_icon.png']}");
+    font: 14px Arial, sans-serif;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartCounter {
+    width: 100%;
+    height: 100%;
+    line-height: 44px;
+    text-align: center;
+}
+
+/**********
+ Messages
+ **********/
+#message_container {
+    align-content: center;
+    text-align: center;
+    text-shadow: rgb(0,0,0) 1px 1px 2px;
+}
+
+#messages {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#messages .infomsg td {
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(0deg, rgba(6,28,53,1) 0%, rgba(11,45,86,1) 50%);
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+#messages .errormsg td {
+    height: 25px;
+    background: linear-gradient(0deg, rgba(60,0,0,0.5) 0%, rgba(110,0,0,0.5) 50%);
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+#content {
+    min-height: 500px;
+    margin: 10px;
+}
+
+
+/**********
+ Showcase
+ **********/
+.product_container {
+    width: 100%;
+}
+
+.tile {
+    background: rgb(30, 30, 30);
+    padding: 10px;
+    border: 1px solid rgb(45, 45, 45);
+    border-radius: 3px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tile:hover {
+    background: rgb(27, 27, 27);
+}
+
+.product_image {
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+.product_description {
+    width: auto;
+    margin: 5px 0 5px 10px;
+    flex-grow: 1;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.product_description_title {
+    font-size: 200%;
+    color: rgb(255, 255, 255);
+}
+
+.product_description_column {
+    display: inline-flex;
+    flex-direction: row;
+    margin-top: auto;
+}
+
+.product_description_column_title {
+    width: 75px;
+}
+
+.product_description_column_description {
+    width: 100%;
+}
+
+.product_order {
+    width: 200px;
+    margin: 0 0 0 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.product_order_price {
+    font-size: 150%;
+    text-shadow: 2px 2px 6px rgb(0, 0, 0);
+}
+
+/**********
+ Button
+ **********/
+.button {
+    font-size: 120%;
+    background-color: rgb(50, 50, 50);
+    padding: 7px 20px 4px 20px;
+    border: 1px solid rgb(120, 120, 120);
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+.button:hover {
+    background-color: rgb(45, 45, 45);
+}
+
+.button:active {
+    background-color: rgb(35, 35, 35);
+    border: 1px solid rgb(100, 100, 100);
+    color: rgb(150, 150, 150);
+}
+
+.button:focus {
+    outline:0;
+}
+
+#footer {
+    background: rgb(0, 0, 0);
+    width: 100%;
+    min-height: 25px;
+}
+
+/**********
+ Links
+ **********/
+a:link {
+    text-decoration: none;
+}
+
+/*-----------------------------------------------------------------------------
+ General
+-----------------------------------------------------------------------------*/
+.XCenterContentHV {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.XCenterContentH {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.XSetContentRight {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.XTextDirectionRight {
+    direction: rtl;
+}
+
+.XCenter {
+    position: absolute;
+    margin: 0;
+}
+
+.XStackColumn{
+    flex-direction: column;
+}
+
+/**********
+ Dimensions
+ **********/
+.XWidth50 {
+    width: 50px;
+}
+
+.XWidth100 {
+    width: 100px;
+}
+
+.XWidth150 {
+    width: 150px;
+}
+
+.XWidth200 {
+    width: 200px;
+}
+
+.XWidth250 {
+    width: 250px;
+}
+
+.XWidth300 {
+    width: 300px;
+}
+
+.XWidth350 {
+    width: 350px;
+}
+
+.XWidthStretch {
+    flex-grow: 1;
+}
+
+.XHeight200 {
+    height: 200px;
+}
+
+/**********
+ Decorations
+ **********/
+.XStyleDefault {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgb(0,0,0);
+}
+
+.XRoundedBorderBottom {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.XShadow {
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+.XStyleButton {
+    outline: none;
+    font-size: 17px;
+    color: rgb(150, 150, 150);
+    text-shadow: 2px 2px rgb(30, 30, 30);
+    background: rgb(30,30,30);
+    background: linear-gradient(0deg, rgba(30,30,30,1) 15%, rgba(40,40,40,1) 50%, rgba(50,50,50,1) 100%);
+    padding: 6px 20px 4px 20px;
+    border: 1px solid rgb(10, 10, 10);
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.XStyleButton:hover {
+    color: rgb(200, 200, 200);
+    background: rgb(40,40,40);
+    background: linear-gradient(0deg, rgba(35,35,35,1) 15%, rgba(50,50,50,1) 50%, rgba(60,60,60,1) 100%);
+}
+
+.XStyleButton:active {
+    padding: 7px 20px 3px 20px;
+    color: rgb(200, 200, 200);
+    background: rgb(20,20,20);
+    background: linear-gradient(0deg, rgba(20,20,20,1) 15%, rgba(30,30,30,1) 50%, rgba(40,40,40,1) 100%);
+}
+
+/**********
+ Pane
+ **********/
+.XPaneTitle {
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.XAddSpaceTop5 {
+    margin-top: 5px;
+}
+
+.XAddSpaceTop10 {
+    margin-top: 10px;
+}
+
+.XAddSpaceBottom5 {
+    margin-bottom: 5px;
+}
+
+.XAddSpaceBottom15 {
+    margin-bottom: 15px;
+}
+
+.XAddSpaceTopAndBottom5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.XAddSpace10 {
+    margin: 10px;
+}
+
+.XAddSpaceLeft50 {
+    margin-left: 50px;
+}
+
+.XPadding5 {
+    padding: 5px;
+}
+
+/**********
+ Rows & Columns
+ **********/
+.XRow {
+}
+
+.XRowEven {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.XRowEven:hover {
+    background: rgba(238, 165, 30, 0.05);
+}
+
+.XRowOdd {
+}
+
+.XRowOdd:hover {
+    background: rgba(238, 165, 30, 0.05);
+}
+
+.XRowLabel {
+    font-size: 17px;
+    display: inline-block;
+}
+
+.XRowTextInput {
+    font-size: 17px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgb(100, 100, 100);
+    padding: 5px;
+}
+
+.XRowMessage {
+    display: block;
+    color: rgb(238, 165, 30);
+    text-shadow: 0 0 5px rgb(0, 0, 0);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.XRowTextInput:focus {
+    outline: none;
+    border: 1px solid rgb(44, 104, 148);
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+.XTextColorYellow {
+    color: rgb(238, 165, 30);
+}

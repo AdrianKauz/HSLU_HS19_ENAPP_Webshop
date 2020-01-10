@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/resources/templates/template.xhtml">
+    <ui:define name="content">
+        <div class="XStyleDefault XRoundedBorderBottom XShadow">
+            <div class="XPaneTitle">My Cart...</div>
+            <div class="XPaneBody XAddSpace10">
+                <div class="XRow XPadding5 XAddSpaceTopAndBottom5">
+                    <h:outputText class="XRowLabel XWidth100 XTextColorYellow" value="Quantity"/>
+                    <h:outputText class="XRowLabel XWidth350 XTextColorYellow" value="Item"/>
+                    <h:outputText class="XRowLabel XWidth150 XTextColorYellow" value="Price/Item (CHF)"/>
+                    <h:outputText class="XRowLabel XWidth150 XTextColorYellow" value="Total (CHF)"/>
+                </div>
+                <ui:repeat value="#{cartJSF.currentCartSelection}" var="singleCartItem" varStatus="status">
+                    <div class="XRow XPadding5 #{status.index%2 eq 0 ? 'XRowEven' : 'XRowOdd'}">
+                        <h:outputText class="XRowLabel XWidth100" value="#{singleCartItem.quantity}"/>
+                        <h:outputText class="XRowLabel XWidth350" value="#{singleCartItem.product.description}"/>
+                        <h:outputText class="XRowLabel XWidth150" value="#{singleCartItem.product.unitPrice}">
+                            <f:convertNumber pattern="###.00" />
+                        </h:outputText>
+                        <h:outputText class="XRowLabel XWidth150" value="#{singleCartItem.quantity * singleCartItem.product.unitPrice}">
+                            <f:convertNumber pattern="###.00" />
+                        </h:outputText>
+                    </div>
+                </ui:repeat>
+            </div>
+        </div>
+
+        <ui:fragment rendered="#{cartJSF.size > 0}">
+            <br/>
+            <h:form rendered="#{not empty request.remoteUser}">
+                <h:commandButton class="XStyleButton" value="Check out!" action="#{cartJSF.purchase}"/>
+            </h:form>
+        </ui:fragment>
+    </ui:define>
+</ui:composition>
