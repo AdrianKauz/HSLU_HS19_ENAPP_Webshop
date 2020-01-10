@@ -8,4 +8,4 @@ This is my version of the webshop to fulfill the given task. It's not perfect bu
 * Login data and passwords were removed. You will find the current user/pass-combo on the [Enterpriselab-Wiki](https://wiki.enterpriselab.ch/el/)
 
 ## How it looks
-![Preview](images/images/webshop.png)
+![Preview](images/webshop.png)
